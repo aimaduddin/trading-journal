@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
     <div className="mx-auto flex w-full max-w-5xl flex-col space-y-8 px-4 sm:px-6">
       <header>
         <h1 className="text-3xl font-semibold">Analytics</h1>
-        <p className="mt-2 max-w-2xl text-sm text-neutral-400">
+        <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
           Visualize how capital performs across strategies, timeframes, and
           qualitative tags. Replace the mocked data with Supabase materialized
           views or RPC calls to unlock production-grade insights.
@@ -136,14 +136,14 @@ export default function AnalyticsPage() {
         {summaryCards.map((card) => (
           <article
             key={card.label}
-            className="flex flex-col justify-between rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6"
+            className="flex flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg"
           >
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+              <p className="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
                 {card.label}
               </p>
-              <p className="mt-3 text-3xl font-semibold text-white">{card.value}</p>
-              <p className="mt-2 text-xs text-neutral-500">
+              <p className="mt-3 text-3xl font-semibold text-[var(--foreground)]">{card.value}</p>
+              <p className="mt-2 text-xs text-[var(--muted)]">
                 <span className={card.positive ? "text-emerald-400" : "text-rose-400"}>
                   {card.change}
                 </span>{" "}
@@ -167,19 +167,19 @@ export default function AnalyticsPage() {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-neutral-900 bg-neutral-950/60 p-6">
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
         <div className="flex flex-col gap-8 lg:flex-row">
           <div className="flex-1">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-medium text-white">Equity curve</h2>
-                <p className="text-sm text-neutral-500">Last 90 sessions</p>
+                <h2 className="text-lg font-medium text-[var(--foreground)]">Equity curve</h2>
+                <p className="text-sm text-[var(--muted)]">Last 90 sessions</p>
               </div>
-              <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+              <span className="rounded-full border border-[var(--border)] bg-[var(--surface-hover)] px-3 py-1 text-xs text-[var(--muted)]">
                 Simulated data
               </span>
             </div>
-            <div className="mt-6 flex h-48 items-end gap-2 rounded-2xl border border-neutral-900 bg-neutral-950/80 p-4">
+            <div className="mt-6 flex h-48 items-end gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4">
               {equityCurve.map((point, index) => (
                 <span
                   key={`equity-${index}`}
@@ -190,21 +190,21 @@ export default function AnalyticsPage() {
             </div>
           </div>
 
-          <div className="w-full max-w-sm rounded-2xl border border-neutral-900 bg-neutral-950/80 p-6">
-            <h3 className="text-sm font-medium uppercase tracking-wide text-neutral-400">
+          <div className="w-full max-w-sm rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
+            <h3 className="text-sm font-medium uppercase tracking-wide text-[var(--muted)]">
               Streak insights
             </h3>
             <dl className="mt-4 grid grid-cols-2 gap-4 text-sm">
               {streakMetrics.map((item) => (
                 <div key={item.label}>
-                  <dt className="text-neutral-500">{item.label}</dt>
-                  <dd className="mt-1 text-base font-semibold text-white">
+                  <dt className="text-[var(--muted)]">{item.label}</dt>
+                  <dd className="mt-1 text-base font-semibold text-[var(--foreground)]">
                     {item.value}
                   </dd>
                 </div>
               ))}
             </dl>
-            <div className="mt-6 space-y-3 text-xs text-neutral-400">
+            <div className="mt-6 space-y-3 text-xs text-[var(--muted)]">
               <p>
                 Use streak data to adapt sizing rules. For example, throttle risk
                 after two losses and scale back in on a three-day green run.
@@ -220,19 +220,19 @@ export default function AnalyticsPage() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-3">
-        <article className="lg:col-span-2 rounded-2xl border border-neutral-900 bg-neutral-950/60">
-          <header className="flex items-center justify-between border-b border-neutral-900 px-6 py-4">
+        <article className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] shadow-lg">
+          <header className="flex items-center justify-between border-b border-[var(--border)] px-6 py-4">
             <div>
-              <h2 className="text-lg font-medium text-white">Strategy performance</h2>
-              <p className="text-sm text-neutral-500">
+              <h2 className="text-lg font-medium text-[var(--foreground)]">Strategy performance</h2>
+              <p className="text-sm text-[var(--muted)]">
                 Merge trade records with strategy metadata to surface winners.
               </p>
             </div>
-            <span className="text-xs text-neutral-500">Mocked sample</span>
+            <span className="text-xs text-[var(--muted)]">Mocked sample</span>
           </header>
           <div className="overflow-x-auto px-6 py-4">
             <table className="min-w-full text-left text-sm">
-              <thead className="text-neutral-500">
+              <thead className="text-[var(--muted)]">
                 <tr>
                   <th className="py-2 pr-6 font-medium">Strategy</th>
                   <th className="py-2 pr-6 font-medium">Trades</th>
@@ -242,17 +242,17 @@ export default function AnalyticsPage() {
                   <th className="py-2 font-medium">Impact</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-neutral-900">
+              <tbody className="divide-y divide-[var(--border)]">
                 {strategyMetrics.map((strategy) => (
-                  <tr key={strategy.name} className="text-neutral-300">
-                    <td className="py-3 pr-6 text-white">{strategy.name}</td>
+                  <tr key={strategy.name} className="text-[var(--muted)]">
+                    <td className="py-3 pr-6 text-[var(--foreground)]">{strategy.name}</td>
                     <td className="py-3 pr-6">{strategy.trades}</td>
                     <td className="py-3 pr-6">{strategy.winRate}%</td>
                     <td className="py-3 pr-6">{strategy.expectancy}</td>
                     <td className="py-3 pr-6">{strategy.pnl}</td>
                     <td className="py-3">
                       <div className="flex items-center gap-3">
-                        <div className="h-2 flex-1 rounded-full bg-white/10">
+                        <div className="h-2 flex-1 rounded-full bg-[var(--surface-hover)]">
                           <div
                             className={`h-2 rounded-full ${
                               strategy.pnl.startsWith("-")
@@ -262,7 +262,7 @@ export default function AnalyticsPage() {
                             style={{ width: `${Math.min(Math.abs(strategy.winRate), 100)}%` }}
                           />
                         </div>
-                        <span className="text-xs text-neutral-400">
+                        <span className="text-xs text-[var(--muted)]">
                           {strategy.impact}
                         </span>
                       </div>
@@ -274,19 +274,19 @@ export default function AnalyticsPage() {
           </div>
         </article>
 
-        <aside className="rounded-2xl border border-neutral-900 bg-neutral-950/60 p-6">
-          <h2 className="text-lg font-medium text-white">Timeframe mix</h2>
-          <p className="mt-1 text-sm text-neutral-500">
+        <aside className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+          <h2 className="text-lg font-medium text-[var(--foreground)]">Timeframe mix</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
             Monitor position duration trends to balance risk across regimes.
           </p>
-          <ul className="mt-6 space-y-4 text-sm text-neutral-300">
+          <ul className="mt-6 space-y-4 text-sm text-[var(--muted)]">
             {timeframeDistribution.map((bucket) => (
               <li key={bucket.label}>
-                <div className="flex items-center justify-between text-xs uppercase tracking-wide text-neutral-500">
+                <div className="flex items-center justify-between text-xs uppercase tracking-wide text-[var(--muted)]">
                   <span>{bucket.label}</span>
                   <span>{bucket.value}%</span>
                 </div>
-                <div className="mt-2 h-2 rounded-full bg-white/10">
+                <div className="mt-2 h-2 rounded-full bg-[var(--surface-hover)]">
                   <div
                     className="h-2 rounded-full bg-gradient-to-r from-sky-500/60 via-sky-500 to-sky-400"
                     style={{ width: `${bucket.value}%` }}
@@ -299,31 +299,31 @@ export default function AnalyticsPage() {
       </section>
 
       <section className="grid gap-4 md:grid-cols-2">
-        <article className="rounded-2xl border border-neutral-900 bg-neutral-950/60 p-6">
-          <h2 className="text-lg font-medium text-white">Tag performance</h2>
-          <p className="mt-1 text-sm text-neutral-500">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+          <h2 className="text-lg font-medium text-[var(--foreground)]">Tag performance</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
             Bring qualitative tags into analytics to spot drift early.
           </p>
           <div className="mt-6 space-y-4">
             {tagPerformance.map((item) => (
               <div
                 key={item.tag}
-                className="rounded-xl border border-neutral-900 bg-neutral-950/80 p-4"
+                className="rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-white">{item.tag}</span>
-                  <span className="text-xs text-neutral-400">{item.pnl}</span>
+                  <span className="text-sm font-medium text-[var(--foreground)]">{item.tag}</span>
+                  <span className="text-xs text-[var(--muted)]">{item.pnl}</span>
                 </div>
-                <dl className="mt-3 grid grid-cols-2 gap-3 text-xs text-neutral-400">
+                <dl className="mt-3 grid grid-cols-2 gap-3 text-xs text-[var(--muted)]">
                   <div>
                     <dt>Win rate</dt>
-                    <dd className="mt-1 text-sm font-semibold text-white">
+                    <dd className="mt-1 text-sm font-semibold text-[var(--foreground)]">
                       {item.winRate}%
                     </dd>
                   </div>
                   <div>
                     <dt>Average R</dt>
-                    <dd className="mt-1 text-sm font-semibold text-white">
+                    <dd className="mt-1 text-sm font-semibold text-[var(--foreground)]">
                       {item.avgR}R
                     </dd>
                   </div>
@@ -333,20 +333,20 @@ export default function AnalyticsPage() {
           </div>
         </article>
 
-        <article className="rounded-2xl border border-dashed border-neutral-800 bg-neutral-950/50 p-6">
-          <h2 className="text-lg font-medium text-white">Review queue</h2>
-          <p className="mt-1 text-sm text-neutral-500">
+        <article className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--surface-muted)] p-6">
+          <h2 className="text-lg font-medium text-[var(--foreground)]">Review queue</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
             Translate analytics into deliberate practice with weekly rituals.
           </p>
-          <ul className="mt-6 space-y-4 text-sm text-neutral-300">
+          <ul className="mt-6 space-y-4 text-sm text-[var(--muted)]">
             {reviewPipeline.map((item) => (
-              <li key={item.title} className="rounded-xl border border-neutral-900 bg-neutral-950/80 p-4">
-                <p className="font-medium text-white">{item.title}</p>
-                <p className="mt-2 text-xs text-neutral-400">{item.description}</p>
+              <li key={item.title} className="rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4">
+                <p className="font-medium text-[var(--foreground)]">{item.title}</p>
+                <p className="mt-2 text-xs text-[var(--muted)]">{item.description}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-xs text-neutral-500">
+          <p className="mt-6 text-xs text-[var(--muted)]">
             Wire this list to Supabase task tables or Notion exports to keep your
             review cadence tight.
           </p>
