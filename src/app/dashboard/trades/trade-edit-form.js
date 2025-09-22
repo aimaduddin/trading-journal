@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const inputClass =
-  "w-full rounded-lg border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20";
+  "w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[color:var(--muted)] focus:outline-none focus:ring-2 focus:ring-[color:rgba(24,119,242,0.35)]";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -20,7 +20,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-70"
+      className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? "Saving…" : "Save changes"}
     </button>
@@ -70,8 +70,8 @@ export default function TradeEditForm({ trade, onClose }) {
   return (
     <div className="flex flex-col gap-6">
       <header className="space-y-1">
-        <h3 className="text-lg font-semibold text-white">Edit trade</h3>
-        <p className="text-sm text-neutral-500">
+        <h3 className="text-lg font-semibold text-[var(--foreground)]">Edit trade</h3>
+        <p className="text-sm text-[var(--muted)]">
           Update execution details below. Fees recalculate automatically from entry and exit.
         </p>
       </header>
@@ -83,7 +83,7 @@ export default function TradeEditForm({ trade, onClose }) {
 
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Symbol</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Symbol</label>
             <input
               name="symbol"
               defaultValue={trade.symbol}
@@ -94,7 +94,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Side</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Side</label>
             <select
               name="side"
               defaultValue={trade.side}
@@ -106,7 +106,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Quantity</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Quantity</label>
             <input
               name="quantity"
               type="number"
@@ -119,7 +119,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Status</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Status</label>
             <select
               name="status"
               defaultValue={trade.status}
@@ -133,7 +133,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Entry price</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Entry price</label>
             <input
               name="entryPrice"
               type="number"
@@ -145,7 +145,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Exit price</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Exit price</label>
             <input
               name="exitPrice"
               type="number"
@@ -157,7 +157,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Executed at</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Executed at</label>
             <input
               name="executedAt"
               type="datetime-local"
@@ -167,7 +167,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium text-white">Closed at</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Closed at</label>
             <input
               name="closedAt"
               type="datetime-local"
@@ -177,7 +177,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2 sm:col-span-2">
-            <label className="text-sm font-medium text-white">Risk amount</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Risk amount</label>
             <input
               name="riskAmount"
               type="number"
@@ -189,7 +189,7 @@ export default function TradeEditForm({ trade, onClose }) {
           </div>
 
           <div className="space-y-2 sm:col-span-2">
-            <label className="text-sm font-medium text-white">Notes</label>
+            <label className="text-sm font-medium text-[var(--foreground)]">Notes</label>
             <textarea
               name="notes"
               rows={3}
@@ -213,14 +213,14 @@ export default function TradeEditForm({ trade, onClose }) {
                 {state.message}
               </p>
             ) : (
-              <p className="text-neutral-600">Changes save when you click &quot;Save changes&quot;.</p>
+              <p className="text-[var(--muted)]">Changes save when you click &quot;Save changes&quot;.</p>
             )}
           </div>
           <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={onClose}
-              className="rounded-lg border border-neutral-800 px-4 py-2 text-sm font-semibold text-neutral-200 transition hover:border-neutral-600 hover:text-white"
+              className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--muted)] transition hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
             >
               Cancel
             </button>
