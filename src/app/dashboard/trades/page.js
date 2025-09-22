@@ -1,4 +1,4 @@
-import { listRecentTrades } from "../../../../lib/trades";
+import { listRecentTrades } from "../../../lib/trades";
 import TradeForm from "./trade-form";
 import TradeRowActions from "./trade-row-actions";
 import TradeCardList from "./trade-card-list";

@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import TradeEditForm from "./trade-edit-form";
 import { deleteTradeAction } from "./actions";
-import { useToast } from "../../../../components/toast-provider";
+import { useToast } from "../../../components/toast-provider";
 
 export default function TradeRowActions({ trade, variant = "default" }) {
   const [isEditing, setIsEditing] = useState(false);
