@@ -130,7 +130,7 @@ export default function JournalPage() {
     <div className="mx-auto flex w-full max-w-5xl flex-col space-y-8 px-4 sm:px-6">
       <header>
         <h1 className="text-3xl font-semibold">Journal</h1>
-        <p className="mt-2 max-w-2xl text-sm text-neutral-400">
+        <p className="mt-2 max-w-2xl text-sm text-[var(--muted)]">
           Keep qualitative notes, link them to trades, and set follow-up prompts.
           The next iteration introduces the editor, trade linking, and reminder
           workflows.
@@ -141,13 +141,13 @@ export default function JournalPage() {
         {highlightCards.map((card) => (
           <article
             key={card.title}
-            className="flex flex-col justify-between rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6"
+            className="flex flex-col justify-between rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg"
           >
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+              <p className="text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
                 {card.title}
               </p>
-              <p className="mt-3 text-sm text-neutral-300">{card.insight}</p>
+              <p className="mt-3 text-sm text-[var(--muted)]">{card.insight}</p>
             </div>
             <span
               className={`mt-6 inline-flex w-max items-center rounded-full px-3 py-1 text-xs font-medium ${
@@ -165,17 +165,17 @@ export default function JournalPage() {
       </section>
 
       <section className="grid gap-6 lg:grid-cols-3">
-        <article className="lg:col-span-2 rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6">
+        <article className="lg:col-span-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
           <header className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-lg font-medium text-white">Quick capture</h2>
-              <p className="text-sm text-neutral-500">
+              <h2 className="text-lg font-medium text-[var(--foreground)]">Quick capture</h2>
+              <p className="text-sm text-[var(--muted)]">
                 Draft thoughts here before promoting them to a structured entry.
               </p>
             </div>
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 px-4 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-white/10"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5 text-sm font-medium text-[var(--foreground)] shadow-sm transition hover:bg-[var(--surface-hover)]"
             >
               Start new entry
             </button>
@@ -185,38 +185,38 @@ export default function JournalPage() {
               rows={4}
               readOnly
               placeholder="What stood out from today's session?"
-              className="w-full rounded-xl border border-neutral-800 bg-neutral-950/80 px-4 py-3 text-sm text-neutral-200 placeholder:text-neutral-600 focus:border-neutral-700 focus:outline-none"
+              className="w-full rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[color:var(--muted)] focus:border-[color:rgba(24,119,242,0.35)] focus:outline-none"
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {quickCapturePrompts.map((prompt) => (
                 <div
                   key={prompt.label}
-                  className="rounded-xl border border-dashed border-neutral-800 bg-neutral-950/60 p-4"
+                  className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--surface-muted)] p-4"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
                     {prompt.label}
                   </p>
-                  <p className="mt-2 text-sm text-neutral-300">{prompt.description}</p>
+                  <p className="mt-2 text-sm text-[var(--muted)]">{prompt.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </article>
 
-        <article className="rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6">
-          <h2 className="text-lg font-medium text-white">Review queue</h2>
-          <p className="mt-1 text-sm text-neutral-500">
+        <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+          <h2 className="text-lg font-medium text-[var(--foreground)]">Review queue</h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
             Upcoming follow-ups and deep work sessions sourced from entries.
           </p>
           <ul className="mt-4 space-y-4 text-sm">
             {reviewQueue.map((item) => (
               <li
                 key={item.title}
-                className="rounded-xl border border-neutral-900 bg-neutral-950/80 p-4"
+                className="rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4"
               >
-                <p className="font-medium text-white">{item.title}</p>
-                <p className="mt-1 text-neutral-400">{item.description}</p>
-                <p className="mt-3 text-xs uppercase tracking-wide text-neutral-500">
+                <p className="font-medium text-[var(--foreground)]">{item.title}</p>
+                <p className="mt-1 text-[var(--muted)]">{item.description}</p>
+                <p className="mt-3 text-xs uppercase tracking-wide text-[var(--muted)]">
                   {item.due}
                 </p>
               </li>
@@ -225,15 +225,15 @@ export default function JournalPage() {
         </article>
       </section>
 
-      <section className="rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6">
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
         <header className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-lg font-medium text-white">Recent entries</h2>
-            <p className="text-sm text-neutral-500">
+            <h2 className="text-lg font-medium text-[var(--foreground)]">Recent entries</h2>
+            <p className="text-sm text-[var(--muted)]">
               Timeline of reflections linked to trades and next steps.
             </p>
           </div>
-          <span className="inline-flex items-center rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+          <span className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface-hover)] px-3 py-1 text-xs text-[var(--muted)]">
             Syncing from Supabase soon
           </span>
         </header>
@@ -241,57 +241,57 @@ export default function JournalPage() {
           {journalEntries.map((entry) => (
             <li
               key={entry.id}
-              className="rounded-2xl border border-neutral-900 bg-neutral-950/80 p-6"
+              className="rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-6"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-xs uppercase tracking-wide text-neutral-500">
+                  <p className="text-xs uppercase tracking-wide text-[var(--muted)]">
                     {entry.timestamp}
                   </p>
-                  <h3 className="mt-1 text-xl font-semibold text-white">
+                  <h3 className="mt-1 text-xl font-semibold text-[var(--foreground)]">
                     {entry.title}
                   </h3>
-                  <p className="text-sm text-neutral-500">{entry.tradeRef}</p>
+                  <p className="text-sm text-[var(--muted)]">{entry.tradeRef}</p>
                 </div>
-                <span className="inline-flex w-max rounded-full border border-white/10 px-3 py-1 text-xs text-neutral-300">
+                <span className="inline-flex w-max rounded-full border border-[var(--border)] bg-[var(--surface-hover)] px-3 py-1 text-xs text-[var(--muted)]">
                   {entry.sentiment}
                 </span>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-neutral-300">
+              <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
                 {entry.summary}
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {entry.tags.map((tag) => (
                   <li
                     key={`${entry.id}-${tag}`}
-                    className="rounded-full bg-white/10 px-3 py-1 text-xs text-white"
+                    className="rounded-full bg-[color:rgba(24,119,242,0.12)] px-3 py-1 text-xs font-medium text-[var(--primary)]"
                   >
                     {tag}
                   </li>
                 ))}
               </ul>
-              <div className="mt-4 space-y-2 text-sm text-neutral-300">
+              <div className="mt-4 space-y-2 text-sm text-[var(--muted)]">
                 {entry.takeaways.map((item, index) => (
                   <p key={`${entry.id}-takeaway-${index}`} className="flex gap-2">
-                    <span className="text-neutral-500">•</span>
+                    <span className="text-[var(--muted)]">•</span>
                     <span>{item}</span>
                   </p>
                 ))}
               </div>
-              <div className="mt-4 rounded-xl border border-dashed border-neutral-800 bg-neutral-950/70 p-4 text-sm text-neutral-400">
-                <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              <div className="mt-4 rounded-xl border border-dashed border-[var(--border)] bg-[var(--surface)] p-4 text-sm text-[var(--muted)]">
+                <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">
                   Follow-up
                 </p>
-                <p className="mt-1 text-neutral-300">{entry.followUp}</p>
+                <p className="mt-1 text-[var(--muted)]">{entry.followUp}</p>
               </div>
             </li>
           ))}
         </ol>
       </section>
 
-      <section className="rounded-2xl border border-neutral-900 bg-neutral-950/70 p-6">
-        <h2 className="text-lg font-medium text-white">Saved templates</h2>
-        <p className="mt-1 text-sm text-neutral-500">
+      <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-lg">
+        <h2 className="text-lg font-medium text-[var(--foreground)]">Saved templates</h2>
+        <p className="mt-1 text-sm text-[var(--muted)]">
           Build structured reflections you can reuse. Attach them to sessions
           and strategies to compare progress over time.
         </p>
@@ -299,11 +299,11 @@ export default function JournalPage() {
           {templates.map((template) => (
             <article
               key={template.name}
-              className="rounded-2xl border border-neutral-900 bg-neutral-950/80 p-5"
+              className="rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"
             >
-              <p className="text-sm font-medium text-white">{template.name}</p>
-              <p className="mt-2 text-sm text-neutral-400">{template.description}</p>
-              <p className="mt-4 text-xs uppercase tracking-wide text-neutral-500">
+              <p className="text-sm font-medium text-[var(--foreground)]">{template.name}</p>
+              <p className="mt-2 text-sm text-[var(--muted)]">{template.description}</p>
+              <p className="mt-4 text-xs uppercase tracking-wide text-[var(--muted)]">
                 {template.cadence}
               </p>
             </article>

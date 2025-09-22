@@ -17,7 +17,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-neutral-900 transition hover:bg-neutral-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-not-allowed disabled:opacity-70"
+      className="inline-flex items-center justify-center rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[var(--primary-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] disabled:cursor-not-allowed disabled:opacity-70"
     >
       {pending ? "Logging…" : "Log trade"}
     </button>
@@ -28,9 +28,9 @@ function Field({ label, description, children }) {
   return (
     <div className="space-y-2">
       <div>
-        <label className="text-sm font-medium text-white">{label}</label>
+        <label className="text-sm font-medium text-[var(--foreground)]">{label}</label>
         {description ? (
-          <p className="text-xs text-neutral-500">{description}</p>
+          <p className="text-xs text-[var(--muted)]">{description}</p>
         ) : null}
       </div>
       {children}
@@ -39,7 +39,7 @@ function Field({ label, description, children }) {
 }
 
 const inputClass =
-  "w-full rounded-lg border border-neutral-800 bg-neutral-950 px-3 py-2 text-sm text-white placeholder-neutral-600 focus:outline-none focus:ring-2 focus:ring-white/20";
+  "w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)] placeholder:text-[color:var(--muted)] focus:outline-none focus:ring-2 focus:ring-[color:rgba(24,119,242,0.35)]";
 
 export default function TradeForm() {
   const [state, formAction] = useFormState(createTradeAction, initialState);
@@ -74,10 +74,10 @@ export default function TradeForm() {
   }, [state, push]);
 
   return (
-    <section className="w-full rounded-2xl border border-neutral-900 bg-neutral-950/70 p-5 sm:p-6">
+    <section className="w-full rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-lg sm:p-6">
       <div className="mb-6 space-y-2">
-        <h2 className="text-lg font-semibold text-white">Log a trade</h2>
-        <p className="text-sm text-neutral-500">
+        <h2 className="text-lg font-semibold text-[var(--foreground)]">Log a trade</h2>
+        <p className="text-sm text-[var(--muted)]">
           Capture executions as soon as they close. You can refine details later
           once analytics and attachments ship.
         </p>
@@ -192,7 +192,7 @@ export default function TradeForm() {
                 {state.message}
               </p>
             ) : (
-              <p className="text-neutral-600">
+              <p className="text-[var(--muted)]">
                 Fields marked optional can be filled in later.
               </p>
             )}

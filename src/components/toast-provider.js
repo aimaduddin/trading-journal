@@ -90,7 +90,7 @@ function ToastItem({ toast, onDismiss }) {
   }, [toast, onDismiss]);
 
   const variantStyles = {
-    default: "border-neutral-800 bg-neutral-900 text-neutral-100",
+    default: "border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]",
     success: "border-emerald-500/40 bg-emerald-500/10 text-emerald-200",
     error: "border-red-500/40 bg-red-500/10 text-red-200",
   };
@@ -106,13 +106,13 @@ function ToastItem({ toast, onDismiss }) {
         <div className="space-y-1">
           {toast.title ? <p className="text-sm font-semibold">{toast.title}</p> : null}
           {toast.description ? (
-            <p className="text-sm text-neutral-400">{toast.description}</p>
+            <p className="text-sm text-[var(--muted)]">{toast.description}</p>
           ) : null}
         </div>
         <button
           type="button"
           onClick={() => onDismiss(toast.id)}
-          className="text-xs uppercase tracking-wide text-neutral-500 transition hover:text-neutral-200"
+          className="text-xs uppercase tracking-wide text-[var(--muted)] transition hover:text-[var(--foreground)]"
         >
           Close
         </button>

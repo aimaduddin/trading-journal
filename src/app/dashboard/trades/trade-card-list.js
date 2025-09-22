@@ -56,7 +56,7 @@ function TradeCard({ trade }) {
       </div>
 
       <article
-        className="rounded-2xl border border-neutral-900 bg-neutral-950/80 p-5 shadow-sm transition-transform"
+        className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm transition-transform"
         style={{ transform: `translateX(${-offset}px)` }}
         onMouseDown={handleStart}
         onMouseMove={handleMove}
@@ -69,52 +69,52 @@ function TradeCard({ trade }) {
       >
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-neutral-500">Symbol</p>
-            <p className="text-xl font-semibold text-white">{trade.symbol}</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-[var(--muted)]">Symbol</p>
+            <p className="text-xl font-semibold text-[var(--foreground)]">{trade.symbol}</p>
           </div>
-          <span className="rounded-full border border-neutral-800 px-3 py-1 text-xs font-medium uppercase tracking-wide text-neutral-300">
+          <span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs font-medium uppercase tracking-wide text-[var(--muted)]">
             {trade.side}
           </span>
         </div>
 
-        <dl className="mt-4 grid grid-cols-1 gap-4 text-sm text-neutral-300 sm:grid-cols-2">
+        <dl className="mt-4 grid grid-cols-1 gap-4 text-sm text-[var(--muted)] sm:grid-cols-2">
           <div>
-            <dt className="text-neutral-500">Quantity</dt>
-            <dd className="mt-1 font-medium text-white">{formatNumber(trade.quantity, { digits: 2 })}</dd>
+            <dt className="text-[var(--muted)]">Quantity</dt>
+            <dd className="mt-1 font-medium text-[var(--foreground)]">{formatNumber(trade.quantity, { digits: 2 })}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">Executed</dt>
+            <dt className="text-[var(--muted)]">Executed</dt>
             <dd className="mt-1">{formatDate(trade.executed_at)}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">Entry</dt>
+            <dt className="text-[var(--muted)]">Entry</dt>
             <dd className="mt-1">{formatNumber(trade.entry_price, { digits: 4 })}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">Exit</dt>
+            <dt className="text-[var(--muted)]">Exit</dt>
             <dd className="mt-1">{formatNumber(trade.exit_price, { digits: 4 })}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">P/L</dt>
+            <dt className="text-[var(--muted)]">P/L</dt>
             <dd className="mt-1 font-medium">{formatSignedNumber(calculateProfitValue(trade))}</dd>
           </div>
           <div>
-            <dt className="text-neutral-500">P/L %</dt>
+            <dt className="text-[var(--muted)]">P/L %</dt>
             <dd className="mt-1 font-medium">{formatSignedPercentage(calculateProfitPercentage(trade))}</dd>
           </div>
           <div className="col-span-2">
-            <dt className="text-neutral-500">Status</dt>
+            <dt className="text-[var(--muted)]">Status</dt>
             <dd className="mt-1">{formatStatus(trade.status)}</dd>
           </div>
           <div className="col-span-2">
-            <dt className="text-neutral-500">Tags</dt>
+            <dt className="text-[var(--muted)]">Tags</dt>
             <dd className="mt-1">
               <div className="flex flex-wrap gap-2">
                 {trade.trade_tags?.length
                   ? trade.trade_tags.map((item) => (
                       <span
                         key={`${trade.id}-${item.tags?.id}`}
-                        className="rounded-full bg-white/10 px-2 py-1 text-xs text-white"
+                        className="rounded-full bg-[color:rgba(24,119,242,0.12)] px-2 py-1 text-xs font-medium text-[var(--primary)]"
                       >
                         {item.tags?.name ?? "Tag"}
                       </span>
