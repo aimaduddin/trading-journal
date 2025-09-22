@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { createTradeAction } from "./actions";
-import { useToast } from "@/components/toast-provider";
+import { useToast } from "../../../../components/toast-provider";
 
 const initialState = {
   status: null,

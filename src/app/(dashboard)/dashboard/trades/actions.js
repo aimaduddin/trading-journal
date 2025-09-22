@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { createTrade, updateTrade, deleteTrade } from "@/lib/trades";
+import { createTrade, updateTrade, deleteTrade } from "../../../../lib/trades";
 
 function parseNumber(value) {
   if (value === undefined || value === null || value === "") {

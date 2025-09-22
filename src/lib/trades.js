@@ -1,5 +1,5 @@
 import { unstable_noStore as noStore } from "next/cache";
-import { getSupabaseServerClient } from "@/lib/supabase/server";
+import { getSupabaseServerClient } from "./supabase/server";
 
 const DEFAULT_OWNER_ID = process.env.SUPABASE_DEFAULT_OWNER_ID;
 

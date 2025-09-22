@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ToastProvider } from "@/components/toast-provider";
+import { ToastProvider } from "./toast-provider";
 
 const navItems = [
   { href: "/dashboard/trades", label: "Trades" },
