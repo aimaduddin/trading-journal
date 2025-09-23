@@ -56,11 +56,17 @@ export default function ThemeToggle({ className = "" }) {
       aria-pressed={theme === "dark"}
       aria-label={label}
     >
-      <span
-        className="inline-flex h-2.5 w-2.5 rounded-full"
-        style={{ backgroundColor: theme === "dark" ? "#2374e1" : "#1877f2" }}
-        aria-hidden="true"
-      />
+
+      {isMounted ? (
+        theme === "dark" ? (
+          <MoonIcon className="h-4 w-4 text-[var(--primary)]" />
+        ) : (
+          <SunIcon className="h-4 w-4 text-[var(--primary)]" />
+        )
+      ) : (
+        <SunIcon className="h-4 w-4 text-[var(--primary)]" />
+      )}
+
       <span className="whitespace-nowrap text-xs sm:text-sm">
         {isMounted ? (theme === "dark" ? "Night mode" : "Day mode") : "Theme"}
       </span>
